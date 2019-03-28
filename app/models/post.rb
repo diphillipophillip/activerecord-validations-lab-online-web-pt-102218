@@ -13,6 +13,11 @@ class Post < ActiveRecord::Base
   ]
   
 
+  def is_clickbait?
+    if CLICKBAIT_PATTERNS.none? { |pat| pat.match title }
+      errors.add(:title, "must be clickbait")
+    end
+  end
   
   
 end
