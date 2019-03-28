@@ -12,7 +12,6 @@ class Post < ActiveRecord::Base
     /Guess/i
   ]
   
-  
 
   def clickbait
     key_words = (/Won't Believe|Secret|Top [\d*]|Guess/)
