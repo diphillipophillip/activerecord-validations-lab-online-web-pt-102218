@@ -13,13 +13,6 @@ class Post < ActiveRecord::Base
   ]
   
 
-  def clickbait
-    key_words = (/Won't Believe|Secret|Top [\d*]|Guess/)
-
-    if self.title && !self.title.match(key_words)
-        errors.add(:title, "is not clickbate-y enough.")
-    end
-end
   
   
 end
