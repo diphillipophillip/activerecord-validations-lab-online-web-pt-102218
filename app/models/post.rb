@@ -3,9 +3,15 @@ class Post < ActiveRecord::Base
   validates :content, length: {minimum: 250}
   validates :summary, length: {maximum: 250}
   validates :category, inclusion: {in: ["Fiction", "Non-Fiction"]}
+  validate 
+  
+  def clickbait
+    key_words = (/Won't Believe|Secret|Top [\d*]|Guess/)
 
-  
-  
+    if self.title && !self.title.match(key_words)
+        errors.add(:title, "is not clickbate-y enough.")
+    end
+end
   
   
 end
